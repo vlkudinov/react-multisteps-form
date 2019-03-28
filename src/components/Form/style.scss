@@ -1,0 +1,216 @@
+@import 'styles/vars';
+
+.form {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 40px 0;
+}
+
+.step-markers {
+  display: flex;
+  flex: 1 1 100%;
+  margin: 30px 0;
+  align-items: center;
+  justify-content: center;
+  &__list {
+    display: flex;
+  }
+  &__item {
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    &:not(:first-child) {
+      &:before {
+        display: flex;
+        content: '';
+        width: 200px;
+        height: 2px;
+        background-color: gray;
+      }
+    }
+  }
+  & &__item_active {
+    &:before {
+      background-color: $blue;
+    }
+    .step-markers__number {
+      background-color: $blue;
+    }
+
+  }
+  &__number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    background-color: $gray;
+  }
+}
+
+.field {
+  position: relative;
+  display: flex;
+  flex: 0 1 calc(50% - 20px);
+  align-items: center;
+  margin: 30px 0;
+  color: #bbb5af;
+  transition: all 0.2s ease-in;
+
+  &__input {
+    width: 100%;
+    padding: 15px;
+    outline: none;
+    border-radius: 5px;
+    color: $gray;
+    border: 1px solid #cecece;
+    &:focus, &:active, &:hover {
+      border-color: $blue;
+      box-shadow: 0 0 4px 0 rgba($blue, .8);
+    }
+  }
+  &__label {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    transition: all .4s ease;
+    color: $gray;
+
+  }
+  &__message {
+    display: none;
+    position: absolute;
+    top: calc(100% + 5px);
+    color: $error;
+    padding-left: 10px;
+  }
+  &_error &__input {
+    border-color: $error;
+  }
+  &_error &__message {
+    display: flex;
+  }
+  &_typing &__label {
+    bottom: calc(100% + 10px);
+    transition: all .4s ease;
+  }
+}
+
+.upload {
+  position: relative;
+  display: flex;
+  flex: 1 1 auto;
+  width: 100%;
+  margin-top: 40px;
+  padding: 40px;
+  background: #ebebeb;
+  border: 1px solid #cecece;
+  border-radius: 5px;
+  flex-direction: column;
+  align-items: center;
+
+  &__input {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    filter: alpha(opacity=0);
+  }
+  &__button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $blue;
+    color: white;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    transition: transform .2s ease;
+    margin: 30px;
+    &:after {
+      content: '+';
+      font-size: 50px;
+    }
+    &:hover, &:focus, &:active {
+      transform: scale(1.1);
+    }
+  }
+  &__message {
+    display: none;
+    color: $error;
+  }
+  &_error {
+    border-color: $error;
+  }
+  &_error &__message {
+    display: flex;
+  }
+}
+
+.preview {
+  display: flex;
+  width: 100%;
+  align-items: stretch;
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &__item {
+    position: relative;
+    display: flex;
+    flex: 0 1 calc(33.3% - 10px);
+    margin: 5px;
+    justify-content: center;
+    background-color: black;
+  }
+
+  &__img {
+    width: auto;
+    max-height: 150px;
+  }
+  &__icon {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+  }
+}
+
+.button-group {
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 40px;
+  &__button {
+    outline: none;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+
+    &_prev {
+      background-color: $gray;
+    }
+    &_next {
+      background-color: $blue;
+      margin-left: auto;
+    }
+  }
+}
+
+
+
